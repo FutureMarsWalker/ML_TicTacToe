@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=GraphicsPainter
+comment0.text=Custom\ Drawing\ Code\ Template
+comment1.params=board
+comment1.target=GraphicsPainter(java.lang.String)
+comment2.params=game
+comment2.target=void\ paint(java.lang.String)
+comment3.params=
+comment3.target=void\ run()
+numComments=4
