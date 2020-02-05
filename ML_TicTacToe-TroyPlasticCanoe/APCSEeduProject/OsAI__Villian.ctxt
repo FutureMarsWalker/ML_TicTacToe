@@ -9,7 +9,6 @@ comment3.target=int\ oAIgo(java.lang.String)
 comment3.text=Make\ an\ o\ move\r\n\ @param\ bd\ is\ the\ board\ the\ ai\ moves\ on\r\n\ @return\ an\ integer\ for\ which\ space\ to\ place\ an\ o\ in\r\n
 comment4.params=
 comment4.target=void\ OStick()
-comment4.text=\ OStick\r\n\ This\ method\ is\ run\ when\ O\ wins\r\n\ It\ \r\n
 comment5.params=
 comment5.target=void\ OCarrot()
 comment6.params=
