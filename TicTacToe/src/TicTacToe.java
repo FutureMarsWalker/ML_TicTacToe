@@ -6,23 +6,26 @@ public class TicTacToe{
     static ArrayList<Integer> playerPositions = new ArrayList<Integer>();
     static ArrayList<Integer> cpuPositions = new ArrayList<Integer>();
 
+    static char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
+                                 {'-', '+', '-', '+', '-'},
+                                 {' ', '|', ' ', '|', ' '},
+                                 {'-', '+', '-', '+', '-'},
+                                 {' ', '|', ' ', '|', ' '}};
+
+    static Scanner scanUsrInput = new Scanner(System.in);
+    static int playerPos;
+    int cpuPos;
+
+
     public static void main(String[] args){
 
-        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '}};
-
         printGameBoard(gameBoard);
-
-        Scanner scanUsrInput = new Scanner(System.in);
 
         while(true){
 
 
             System.out.println("Enter you placement (1 - 9)");
-            int playerPos = scanUsrInput.nextInt();
+            playerPos = scanUsrInput.nextInt();
 
             while(playerPositions.contains(playerPos) || cpuPositions.contains(playerPos)){
 
@@ -37,27 +40,15 @@ public class TicTacToe{
             if(result.length() > 0){
                 printGameBoard(gameBoard);
                 System.out.println(result);
+                System.out.println(playerPositions);
                 break;
             }
 
-            Random rand = new Random();
-            int cpuPos = rand.nextInt(9) + 1;
+            Brutus.cpuPlays();
 
-            while(cpuPositions.contains(cpuPos) || playerPositions.contains(cpuPos)){
 
-                cpuPos = rand.nextInt(9) + 1;
 
-            }
 
-            placePiece(gameBoard, cpuPos, "cpu");
-
-            printGameBoard(gameBoard);
-
-            result = checkWinner();
-            if(result.length() > 0) {
-                System.out.println(result);
-                break;
-            }
         }
     }
 
