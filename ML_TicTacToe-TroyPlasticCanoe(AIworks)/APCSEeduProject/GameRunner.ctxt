@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=GameRunner
+comment1.params=
+comment1.target=void\ main()
+comment2.params=max\ min
+comment2.target=int\ getInt(int,\ int)
+numComments=3
