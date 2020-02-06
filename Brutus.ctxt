@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Brutus
+comment1.params=isObserver
+comment1.target=Brutus(boolean)
+comment10.params=
+comment10.target=void\ cleanMemory()
+comment11.params=
+comment11.target=int[]\ getRandomOrder()
+comment12.params=board\ reaction
+comment12.target=void\ addOpponentMoveToMemory(java.lang.String,\ int)
+comment2.params=bd\ isX
+comment2.target=int\ move(java.lang.String,\ boolean)
+comment3.params=board\ move
+comment3.target=void\ observe(java.lang.String,\ int)
+comment4.params=results
+comment4.target=void\ learn(int)
+comment5.params=
+comment5.target=void\ show()
+comment6.params=
+comment6.target=void\ writeToFiles()
+comment7.params=
+comment7.target=void\ loadMemoryFromFiles()
+comment8.params=
+comment8.target=void\ clearMemoryFiles()
+comment9.params=bd\ input
+comment9.target=boolean\ boardEquals(java.lang.String,\ java.lang.String)
+numComments=13

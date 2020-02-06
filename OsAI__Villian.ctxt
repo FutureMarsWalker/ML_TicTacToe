@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=OsAI__Villian
+comment1.params=isObserver
+comment1.target=OsAI__Villian(boolean)
+comment2.params=bd
+comment2.target=int\ oAIgo(java.lang.String)
+comment2.text=Make\ an\ o\ move\n\ @param\ bd\ is\ the\ board\ the\ ai\ moves\ on\n\ @return\ an\ integer\ for\ which\ space\ to\ place\ an\ o\ in\n
+comment3.params=result
+comment3.target=void\ OStick(int)
+comment3.text=\ OStick\n\ This\ method\ is\ run\ when\ O\ wins\n\ It\ \n
+comment4.params=result
+comment4.target=void\ OCarrot(int)
+comment5.params=
+comment5.target=void\ ShowToggles()
+comment6.params=board\ move
+comment6.target=void\ observe(java.lang.String,\ int)
+numComments=7

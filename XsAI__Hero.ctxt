@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=XsAI__Hero
+comment1.params=isObserver
+comment1.target=XsAI__Hero(boolean)
+comment2.params=bd
+comment2.target=int\ xAIgo(java.lang.String)
+comment3.params=result
+comment3.target=void\ XStick(int)
+comment4.params=result
+comment4.target=void\ XCarrot(int)
+comment5.params=
+comment5.target=void\ ShowToggles()
+comment6.params=board\ move
+comment6.target=void\ observe(java.lang.String,\ int)
+numComments=7
