@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=OsAI__Villian
+comment1.params=
+comment1.target=OsAI__Villian()
+comment1.text=\r\n\ General\ Constructer\r\n\ Sets\ the\ values\ for\ brain\ that\ control\ where\ the\ AI\ plays\r\n\ Sets\ values\ for\ learning\r\n\ Basically\ gives\ values\ for\ the\ above\ vareables\r\n
+comment2.params=x\ o\ c\ s\ m\ t\ r
+comment2.target=OsAI__Villian(double,\ double,\ double,\ double,\ double,\ double,\ double)
+comment2.text=\r\n\ Spesific\ Constructor\r\n\ Allows\ exact\ control\ over\ the\ vareables\ above\r\n\ uses\ inputs\ so\ you\ can\ manualy\ maintain\ a\ tic\ tac\ toe\ value\ set\r\n
+comment3.params=bd
+comment3.target=int\ oAIgo(java.lang.String)
+comment3.text=\r\n\ Make\ an\ o\ move\r\n\ @param\ bd\ is\ the\ board\ the\ ai\ moves\ on\r\n\ @return\ an\ integer\ for\ which\ space\ to\ place\ an\ o\ in\r\n
+comment4.params=
+comment4.target=void\ OStick()
+comment4.text=\r\n\ Punishes\ the\ AI\ for\ a\ loss\r\n\ should\ make\ the\ values\ closer\ to\ average\r\n
+comment5.params=
+comment5.target=void\ OCarrot()
+comment5.text=\r\n\ Rewards\ the\ AI\ for\ a\ win\r\n\ making\ the\ values\ farther\ apart\ and\ more\ extreme\r\n
+comment6.params=
+comment6.target=int[]\ rankBrain()
+comment6.text=\r\n\ sees\ what\ is\ the\ best\ and\ worst\ space\r\n
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8
