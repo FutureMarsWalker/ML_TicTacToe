@@ -101,21 +101,22 @@ public class Brutus
         //for (int i = 0; i < input.size(); i++)
         {
             if(bd.equals(input.get(i)))//doesn't use virtual board-flip
-            //if (boardEquals(bd, failInput.get(i)))//uses virtual board-flip
+            //if (boardEquals(bd, input.get(i)))//uses virtual board-flip
             {
                 memoriesUsed.add(i);
+                //WORK HERE
                 chanceOfChoosing[output.get(i)] = outputSuccess.get(i);//doesn't use virtual board-flip
-                //chanceOfChoosing[currentBoard[failOutput.get(i)] - 1] = 1;//uses virtual board-flip
+                //chanceOfChoosing[currentBoard[output.get(i)] - 1] = outputSuccess.get(i);//uses virtual board-flip
             }
         }
         for (int i = 0; i < startI; i++)
         {
             if(bd.equals(input.get(i)))//doesn't use virtual board-flip
-            //if (boardEquals(bd, failInput.get(i)))//uses virtual board-flip
+            //if (boardEquals(bd, input.get(i)))//uses virtual board-flip
             {
                 memoriesUsed.add(i);
                 chanceOfChoosing[output.get(i)] = outputSuccess.get(i);//doesn't use virtual board-flip
-                //chanceOfChoosing[currentBoard[failOutput.get(i)] - 1] = 1;//uses virtual board-flip
+                //chanceOfChoosing[currentBoard[output.get(i)] - 1] = outputSuccess.get(i);//uses virtual board-flip
             }
         }
         //Display chanceOfChoosing (remove in final version)
@@ -166,15 +167,22 @@ public class Brutus
     {
         for (int i = 0; i < thisGameInput.size(); i++)
         {
-            //WORK HERE
-            //in the "else", it always maxes at 7, which is a problem
-            if (results < 5)
+            if (results < 4)
             {
                 outputSuccess.add(results - i + 1);
                 input.add(thisGameInput.get(i));
                 output.add(thisGameOutput.get(i));
-            } else {
-                outputSuccess.add(results + i - 2);
+            } 
+            // else if (results == 4)
+            // {
+                // outputSuccess.add(4);
+                // input.add(thisGameInput.get(i));
+                // output.add(thisGameOutput.get(i));
+            // }
+            else {
+                //WORK HERE
+                //outputSuccess.add(results + i - 2);//old success code
+                outputSuccess.add(results + (i/2) - 1);//new success code, being tested
                 input.add(thisGameInput.get(i));
                 output.add(thisGameOutput.get(i));  
             }

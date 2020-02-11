@@ -3,16 +3,24 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
+import javax.swing.Timer;
 public class GameRunner
 {
     //note: for X, a tie is treated like a loss. For O, a tie is treated like a win
         static private ImageIcon xWin = new ImageIcon("XWins.png");
         static private ImageIcon oWin = new ImageIcon("OWins.png");
         static private ImageIcon tie = new ImageIcon("Tie.png");
+        static private JFrame f = new JFrame();
+        static private JButton b = new JButton();
     public static void main()
     {
 
         Game board = new Game();
+        b.setIcon(tie);
+        f.setBounds(0, 0, 500, 500);
+        f.add(b);
+        f.show();
         
         System.out.println("Choose (enter a number 1-4): ");
         System.out.println("1: Play as x against AI");
@@ -71,6 +79,9 @@ public class GameRunner
                    (bd.substring(2, 3) + bd.substring(4, 5) + bd.substring(6, 7)).equals("xxx"))
                 {
                     System.out.println("Crosses win!");
+                    b.setIcon(xWin);
+                    //WORK HERE
+                    f.show();
                     if (turn == 5 || turn == 6)
                     {
                         villian.OStick(1);
@@ -102,6 +113,8 @@ public class GameRunner
                   (bd.substring(2, 3) + bd.substring(4, 5) + bd.substring(6, 7)).equals("ooo"))
                 {
                     System.out.println("Nots win!");
+                    b.setIcon(oWin);
+                    f.show();
                     if (turn == 5 || turn == 6)
                     {
                         villian.OCarrot(7);
@@ -110,7 +123,7 @@ public class GameRunner
                     {
                         villian.OCarrot(6);
                         hero.XStick(2);
-                    } else if (turn == 9)
+                    } else if (turn == 9) // I'm pretty sure this is unreachable, o can't win in 9 turns
                     {
                         villian.OCarrot(5);
                         hero.XStick(3);
@@ -126,6 +139,8 @@ public class GameRunner
                            bd.substring(8, 9).equals("9")))
                 {
                     System.out.println("Tie.");
+                    b.setIcon(tie);
+                    f.show();
                     villian.OCarrot(4);
                     hero.XStick(4);
                     //fboard.gameOver(tie);
@@ -154,6 +169,7 @@ public class GameRunner
                                 // x = getInt(9, 1);
                                 x = board.waitForButton();
                              }
+                            f.hide();
                             hero.observe(bd, x);//add this in later too
                             bd = board.xPlays(bd, x);//make the move
                             turn++;
@@ -178,6 +194,7 @@ public class GameRunner
                                 // x = getInt(9, 1);
                                 x = board.waitForButton();
                             }
+                            f.hide();
                             villian.observe(bd, x);
                             bd = board.oPlays(bd, x);
                             turn++;

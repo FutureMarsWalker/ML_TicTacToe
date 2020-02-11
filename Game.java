@@ -177,13 +177,7 @@ public class Game
         String b = bd;
         //WORK HERE
         //remove all the 1s after - in bd
-        for(int i = 0; i < bd.length() - 1; i++)
-        {
-            if (bd.substring(i, i + 2).equals("-1"))
-            {
-                bd = bd.substring(0, i + 1) + bd.substring (i + 2);
-            }
-        }
+        b = removeNegative1(b);
         
         System.out.println("[" + b.substring(0,1) + "][" + b.substring(1,2) + "][" + b.substring(2,3) + "]");
         System.out.println("[" + b.substring(3,4) + "][" + b.substring(4,5) + "][" + b.substring(5,6) + "]");
@@ -201,6 +195,16 @@ public class Game
             }
         } //waits until waitingForButton = false
     }
-    
+    public static String removeNegative1 (String str)
+    {
+        for(int i = 0; i < str.length() - 1; i++)
+        {
+            if (str.substring(i, i + 2).equals("-1"))
+            {
+                str = str.substring(0, i + 1) + str.substring (i + 2);
+            }
+        }
+        return str;
+    }
     
 }
