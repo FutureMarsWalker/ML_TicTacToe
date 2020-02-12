@@ -167,7 +167,7 @@ public class Brutus
     {
         for (int i = 0; i < thisGameInput.size(); i++)
         {
-            if (results < 4)
+            if (results < 5)
             {
                 outputSuccess.add(results - i + 1);
                 input.add(thisGameInput.get(i));

@@ -5,21 +5,35 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
 public class GameRunner
 {
     //note: for X, a tie is treated like a loss. For O, a tie is treated like a win
         static private ImageIcon xWin = new ImageIcon("XWins.png");
         static private ImageIcon oWin = new ImageIcon("OWins.png");
         static private ImageIcon tie = new ImageIcon("Tie.png");
+        static private ImageIcon title = new ImageIcon("Title.png");
         static private JFrame f = new JFrame();
         static private JButton b = new JButton();
     public static void main()
     {
 
         Game board = new Game();
-        b.setIcon(tie);
+        b.setIcon(title);
         f.setBounds(0, 0, 500, 500);
         f.add(b);
+        b.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e)
+                {
+                    //f.hide();
+                    //WORK HERE
+                    synchronized(f) {
+                         f.notify();
+                    }
+                }
+            });
         f.show();
         
         System.out.println("Choose (enter a number 1-4): ");
@@ -78,24 +92,28 @@ public class GameRunner
                    (bd.substring(0, 1) + bd.substring(4, 5) + bd.substring(8, 9)).equals("xxx") ||
                    (bd.substring(2, 3) + bd.substring(4, 5) + bd.substring(6, 7)).equals("xxx"))
                 {
-                    System.out.println("Crosses win!");
+                    //System.out.println("Crosses win!");
                     b.setIcon(xWin);
                     //WORK HERE
                     f.show();
+                    try {
+                        synchronized(f)
+                        {
+                            f.wait();
+                        }
+                    } catch (java.lang.InterruptedException e)
+                    {}
                     if (turn == 5 || turn == 6)
                     {
                         villian.OStick(1);
-                        System.out.println("Brutus fail 1");
                         hero.XCarrot(7);
                     } else if (turn == 7 || turn == 8)
                     {
                         villian.OStick(2);
-                        System.out.println("Brutus fail 2");
                         hero.XCarrot(6);
                     } else if (turn == 9)
                     {
                         villian.OStick(3);
-                        System.out.println("Brutus fail 3");
                         hero.XCarrot(5);
                     }
                     
@@ -112,9 +130,17 @@ public class GameRunner
                   (bd.substring(0, 1) + bd.substring(4, 5) + bd.substring(8, 9)).equals("ooo") ||
                   (bd.substring(2, 3) + bd.substring(4, 5) + bd.substring(6, 7)).equals("ooo"))
                 {
-                    System.out.println("Nots win!");
+                    //WORK HERE
+                    //System.out.println("Nots win!");
                     b.setIcon(oWin);
                     f.show();
+                    try {
+                        synchronized(f)
+                        {
+                            f.wait();
+                        }
+                    } catch (java.lang.InterruptedException e)
+                    {}
                     if (turn == 5 || turn == 6)
                     {
                         villian.OCarrot(7);
@@ -138,9 +164,17 @@ public class GameRunner
                            bd.substring(6, 7).equals("7") || bd.substring(7, 8).equals("8") ||
                            bd.substring(8, 9).equals("9")))
                 {
-                    System.out.println("Tie.");
+                    //WORK HERE
+                    //System.out.println("Tie.");
                     b.setIcon(tie);
                     f.show();
+                    try {
+                        synchronized(f)
+                        {
+                            f.wait();
+                        }
+                    } catch (java.lang.InterruptedException e)
+                    {}
                     villian.OCarrot(4);
                     hero.XStick(4);
                     //fboard.gameOver(tie);
@@ -169,7 +203,6 @@ public class GameRunner
                                 // x = getInt(9, 1);
                                 x = board.waitForButton();
                              }
-                            f.hide();
                             hero.observe(bd, x);//add this in later too
                             bd = board.xPlays(bd, x);//make the move
                             turn++;
@@ -194,7 +227,6 @@ public class GameRunner
                                 // x = getInt(9, 1);
                                 x = board.waitForButton();
                             }
-                            f.hide();
                             villian.observe(bd, x);
                             bd = board.oPlays(bd, x);
                             turn++;
