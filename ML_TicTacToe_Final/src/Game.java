@@ -1,11 +1,25 @@
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
 
     private Board board;
     private Random random;
 
+
     public Game(){
+        String[][] board = {{"[1]", " | ", "[2]", " | ",  "[3]"},
+                            {"----+-----+----"},
+                            {"[4]", " | ", "[5]", " | ", "[6]"},
+                            {"----+-----+----"},
+                            {"[7]", " | ",  "[8]", " | ", "[9]"}};
+        for(String[] row : board){
+            for(String col : row){
+                System.out.print(col);
+            }
+            System.out.println();
+        }
         initializeGame(); //This will setup the board
         displayBoard(); //Prints the board in the terminal
         makeFirstMove(); //Choice between who plays first: the computer or the player
@@ -14,20 +28,23 @@ public class Game {
     }
 
     private void checkStatus() {
-        if (board.isWinning(Player.COMPUTER)) {
-            System.out.println("Computer has won! ☜(ﾟヮﾟ☜)");
-        } else if (board.isWinning(Player.USER)) {
-            System.out.println("Player has won! ☜(ﾟヮﾟ☜)");
-        } else {
-            System.out.println("It's a draw!");
-        }
+            if (board.isWinning(Player.COMPUTER)) {
+                System.out.println("Computer has won! ☜(ﾟヮﾟ☜)");
+
+            } else if (board.isWinning(Player.USER)) {
+                System.out.println("Player has won! ☜(ﾟヮﾟ☜)");
+
+            } else {
+                System.out.println("It's a draw!");
+
+            }
     }
 
     private void playGame() {
 
         while ( board.isRunning() ) {
 
-            System.out.print("Enter your move (1 - 9): ");
+            System.out.print("Enter your move (1(top left) - 9(bottom right)): ");
             int userCell = board.getScanner().nextInt(); //Gets user input
             System.out.print("Player's move: ");
             System.out.println();
@@ -46,8 +63,6 @@ public class Game {
             board.move(Network.compCell, Player.COMPUTER);
 
             board.displayBoard();
-
-
         }
     }
 
